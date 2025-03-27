@@ -5,25 +5,22 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     public int health;
-    [SerializeField] private Weapon activeWeapon;
+    [SerializeField] protected Weapon activeWeapon;
 
     public virtual int Attack()
     {
-        Debug.Log("character attack");
+        Debug.Log(name + " attacks!");
         return activeWeapon.GetDamage();
     }
 
-    public Weapon ActiveWeapon
-    {
-        get { return activeWeapon;}
-    }
+    public Weapon ActiveWeapon => activeWeapon;
 
     public void GetHit(int damage)
     {
         health -= damage;
         Debug.Log(name + "'s current health: " + health);
     }
-    
+
     public void GetHit(Weapon weapon)
     {
         health -= weapon.GetDamage();

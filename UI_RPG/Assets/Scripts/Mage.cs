@@ -2,12 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : Character
+public class Mage : Enemy
 {
-    [SerializeField] internal int aggression = 10;
-
     public override int Attack()
     {
-        return aggression;
+        Debug.Log("Mage casts a fireball!");
+        return Random.Range(10, 25);
     }
 }
